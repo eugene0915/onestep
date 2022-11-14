@@ -1,0 +1,93 @@
+.rectangle-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1920px;
+  height: 1080px;
+  object-fit: cover;
+}
+.rectangle-div {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: var(--br-md);
+  background-color: var(--main-ada1ea);
+}
+.log-in-b {
+  position: absolute;
+  top: 30.91%;
+  left: 42%;
+  letter-spacing: -0.3px;
+  line-height: 20px;
+  display: inline-block;
+}
+.sign-in-button {
+  position: absolute;
+  top: 552px;
+  left: 735px;
+  width: 450px;
+  height: 55px;
+}
+.log-in-b1 {
+  position: absolute;
+  top: 30.91%;
+  left: 43.78%;
+  font-size: var(--font-size-base);
+  letter-spacing: -0.3px;
+  line-height: 20px;
+  display: inline-block;
+  font-family: var(--font-roboto);
+  color: var(--basic-ffffff);
+  text-align: center;
+}
+.log-in-button1 {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.log-in-button {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  position: absolute;
+  top: 473px;
+  left: 735px;
+  width: 450px;
+  height: 55px;
+}
+.logo1-icon {
+  position: absolute;
+  height: 5.08%;
+  width: 12.71%;
+  top: 36.48%;
+  right: 49.01%;
+  bottom: 58.44%;
+  left: 38.28%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+  background-image: url(../assets/logo1.png);
+}
+.start-div {
+  position: relative;
+  width: 100%;
+  height: 1080px;
+  overflow: hidden;
+  background-image: url(../assets/Rectangle1.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  text-align: center;
+  font-size: var(--font-size-base);
+  color: var(--basic-ffffff);
+  font-family: var(--font-roboto);
+}

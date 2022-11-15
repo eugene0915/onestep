@@ -19,10 +19,10 @@ const LoginPage = () => {
         <span>----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
             <div className="start-div">
                 <img className="rectangle-icon" alt="" src="../Rectangle1.png" />
-                <div className="sign-in-button">
+                <button className="sign-in-button">
                     <div className="rectangle-div" />
                     <b className="log-in-b" onClick={makeAccount}>회원가입</b>
-                </div>
+                </button>
                 <button className="log-in-button" autoFocus>
                     <div className="log-in-button1">
                         <div className="rectangle-div" />

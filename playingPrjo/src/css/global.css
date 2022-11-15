@@ -1,4 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Azo+Sans:wght@900&display=swap");
+
 body {
   margin: 0;
   line-height: normal;
@@ -6,14 +8,21 @@ body {
 :root {
   /* fonts */
   --font-roboto: Roboto;
+  --font-azo-sans: "Azo Sans";
 
   /* font sizes */
+  --font-size-xs: 14px;
+  --font-size-sm: 17px;
   --font-size-base: 20px;
 
   /* Colors */
   --basic-ffffff: #fff;
   --main-ada1ea: #ada1ea;
+  --monotone-efefef: #efefef;
+  --monotone-737373: #737373;
 
   /* border radiuses */
   --br-md: 6px;
+  --br-md: 24px;
 }
+

@@ -21,11 +21,19 @@
   position: absolute;
   top: 30.91%;
   left: 42%;
+  font-size: var(--font-size-base);
   letter-spacing: -0.3px;
   line-height: 20px;
   display: inline-block;
+  font-family: var(--font-roboto);
+  color: var(--basic-ffffff);
+  text-align: center;
 }
 .sign-in-button {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
   position: absolute;
   top: 552px;
   left: 735px;
@@ -90,4 +98,9 @@
   font-size: var(--font-size-base);
   color: var(--basic-ffffff);
   font-family: var(--font-roboto);
+}
+@media screen and (max-width: 428px) {
+  .log-in-button {
+    width: 200px;
+  }
 }

@@ -95,6 +95,9 @@ const LogInPopUp = (props: Props) => {
 
     };
 
+    //네이버로 로그인 하기
+    // 커다란 네이버 버튼 숨기고, 자체적으로 만든 로고에서 click event가능하게 기능 구현 필요. 
+    // ref를 이용해 시도하려고 했으나 아직 해결법을 찾지 못했습니다. 
     const loginNAVER = () => {
 
         console.log("clickNaver", clickNaver);
@@ -164,7 +167,7 @@ const LogInPopUp = (props: Props) => {
     //     }
     // };
 
-    // 질문, 네이버 로그인 끝 -- 
+
 
     return (<>
         <Modal open={props.visible}>

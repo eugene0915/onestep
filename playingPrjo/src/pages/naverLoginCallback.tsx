@@ -4,6 +4,10 @@ import "../css/global.css";
 import "../assets/Rectangle1.png"
 import NaverLogin from "react-login-by-naver";
 
+
+// there is unsolved problem with naver login connecting, 
+// this is the test page for it.
+
 const NaverLoginCallbackPage = () => {
 
     const popup = () => {
@@ -17,6 +21,7 @@ const NaverLoginCallbackPage = () => {
     };
 
     return (<>
+
         <button onClick={popup}>네이버 아이디 연동에 동의</button>
 
 

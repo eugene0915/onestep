@@ -7,10 +7,12 @@ const LoginPage = () => {
     const [popup, setPopup] = useState(false);
     const [makePopup, setMakePopup] = useState(false);
 
-
+    // when click "login", pop up window shows
     const login = () => {
         setPopup(true);
     }
+
+    // when click "make account button", pop up window shows
     const makeAccount = () => {
         setMakePopup(true);
     }
@@ -33,6 +35,7 @@ const LoginPage = () => {
             </div>
 
         </span>
+        {/* conneted two pop up windows, for MakeAccount and Log in  */}
         <LogInPopUp visible={popup} setVisible={setPopup} />
         <MakeAccountPopUp visible={makePopup} setVisible={setMakePopup} />
 

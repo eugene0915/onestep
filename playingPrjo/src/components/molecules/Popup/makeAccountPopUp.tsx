@@ -16,6 +16,9 @@ interface Props {
 const MakeAccountPopUp = (props: Props) => {
 
     // 이메일 회원가입
+    // new user make their own account using this pop up window. only using their email and password 
+    // it will store in firebase user account 
+
     const [registerEmail, setRegisterEmail] = useState("");
     const [registerPassword, setRegisterPassword] = useState("");
 
@@ -38,12 +41,15 @@ const MakeAccountPopUp = (props: Props) => {
     return (<>
         <Modal open={props.visible} >
             <>
-                <div onClick={() => { props.setVisible(false) }}>x 버튼</div>
+                {/* for close the pop-up window, a temporary button. you can check above the pop up window  */}
+                <div onClick={() => { props.setVisible(false) }}>CLOSE BUTTON X</div>
+
                 <div className="sign-up-pop-up">
                     <div className="rectangle-div1" />
                     <div className="welcome-div">WELCOME</div>
                     <img className="logo6-icon" alt="" src="../logo6.svg" />
                     <div className="div">
+                        {/* Double check if typed password is correct. need to be developed  */}
                         <input className="rectangle-div2" />
                         <div className="div1">비밀번호 확인</div>
                     </div>
@@ -65,7 +71,9 @@ const MakeAccountPopUp = (props: Props) => {
                     </div>
                     <div className="div6">
                         <span>*</span>
+
                         <span className="span">
+                            {/* Create a password with at least 8 digits, including letters and numbers. */}
                             문자와 숫자를 포함하여 8자리 이상으로 비밀번호를 만드세요.
                         </span>
                     </div>

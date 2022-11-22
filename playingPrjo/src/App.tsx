@@ -7,6 +7,7 @@ import { collection, getDocs, onSnapshot } from "firebase/firestore"
 import { Route, Routes } from "react-router-dom"
 import LoginPage from './pages/login';
 import NaverLoginCallbackPage from './pages/naverLoginCallback'
+import TestPage from './pages/test'
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
     <Routes>
       <Route path="/" element={<LoginPage />} />
       <Route path="/navercallback" element={<NaverLoginCallbackPage />} />
+      <Route path="/test" element={<TestPage />} />
 
 
     </Routes>

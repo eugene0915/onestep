@@ -8,6 +8,7 @@ import { Route, Routes } from "react-router-dom"
 import LoginPage from './pages/login';
 import NaverLoginCallbackPage from './pages/naverLoginCallback'
 import TestPage from './pages/test'
+import DadJokes from './pages/dadJokes'
 
 function App() {
 
@@ -25,7 +26,7 @@ function App() {
       <Route path="/" element={<LoginPage />} />
       <Route path="/navercallback" element={<NaverLoginCallbackPage />} />
       <Route path="/test" element={<TestPage />} />
-
+      <Route path="/jokes" element={<DadJokes />} />
 
     </Routes>
   )

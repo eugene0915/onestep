@@ -11,6 +11,60 @@ const TestPage = () => {
     const total = WholeData.concat(dayone)
 
 
+    let duplicationArray = total.filter((uid, i, arr) => {
+        let ind = total.lastIndexOf(total.arr);
+        console.log(ind, "ind")
+
+        if (ind !== -1 && ind !== i) return true;
+        else return false;
+    })
+    console.log(duplicationArray, "duplicationArray")
+
+
+    // const result = total.reduce((fanalArray, cur) => {
+
+    //     const obj = fanalArray.find((item) => item.uid === cur.uid)
+    //     console.log(obj, "obj")
+
+
+    //     if (obj == undefined) {
+    //         return
+    //     }
+    //     return fanalArray
+
+
+
+
+    // }, [])
+
+    // console.log(result, "result")
+
+
+    // let duplicationArray = total.filter((e, i, arr) => {
+    //     const lastIndex = arr.lastIndexOf(e);
+
+    //     console.log(lastIndex, "lastindex")
+    //     if (lastIndex !== -1 && lastIndex !== i) return true;
+    //     else return false;
+    // })
+    // duplicationArray = [...new Set(duplicationArray)]
+    // const newArray = total.filter((e) => {
+    //     if (duplicationArray.indexOf(e) === -1) return true;
+    //     else return false;
+    // });
+
+    // console.log(duplicationArray, "duplicationArray"); // [100, 80]
+    // console.log(newArray, "newArray");     // [70, 90, 71]
+
+
+
+
+    // const unique = [
+    //     ...new Map(total.map((item) => [item["uid"], item])).values(),
+    // ];
+    // console.log("original items", total.length, total)
+    // console.log("unique items", unique.length, unique)
+
     // const result = total.filter((item, idx) => total.indexOf(item) !== idx)
     //     .reduce((prev, curr) => prev.filter(item => item !== curr), total)
 
@@ -23,22 +77,7 @@ const TestPage = () => {
 
     // console.log(resultNumber, "resultNumber")
 
-    // const depArray = [100, 100, 80, 80, 70, 90, 71, 80];
-    let duplicationArray = total.filter((e, i, arr) => {
-        const lastIndex = arr.lastIndexOf(e);
 
-        console.log(lastIndex, "lastindex")
-        if (lastIndex !== -1 && lastIndex !== i) return true;
-        else return false;
-    })
-    // duplicationArray = [...new Set(duplicationArray)]
-    // const newArray = total.filter((e) => {
-    //     if (duplicationArray.indexOf(e) === -1) return true;
-    //     else return false;
-    // });
-
-    console.log(duplicationArray, "duplicationArray"); // [100, 80]
-    // console.log(newArray, "newArray");     // [70, 90, 71]
 
     //https://okky.kr/articles/1359719
     //https://stackoverflow.com/questions/74556019/react-question-how-to-omit-duplicate-data-in-array

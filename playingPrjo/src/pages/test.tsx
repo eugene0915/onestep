@@ -6,20 +6,31 @@ const TestPage = () => {
     const WholeData = [{ name: 1, uid: 1 }, { name: 2, uid: 2 }, { name: 3, uid: 3 },
     { name: "ball", uid: 100 }, { name: "lina", uid: 200 }, { name: "ppp", uid: 700 }]
 
-    const dayone = [{ name: "ball", uid: 100 }, { name: "lina", uid: 200 }, { name: "ppp", uid: 700 }, { name: 7, uid: 7 }]
+    const dayone = [{ name: "ball", uid: 100, title: "aaa" }, { name: "lina", uid: 200, title: "aaa" }, { name: "ppp", uid: 700 }, { name: 7, uid: 7 }]
 
     const total = WholeData.concat(dayone)
 
 
-    let duplicationArray = total.filter((uid, i, arr) => {
-        let ind = total.lastIndexOf(total.arr);
-        console.log(ind, "ind")
+    // let duplicationArray = total.filter((uid, i, arr) => {
+    //     let ind = total.lastIndexOf(total.arr);
+    //     console.log(ind, "ind")
 
-        if (ind !== -1 && ind !== i) return true;
-        else return false;
-    })
-    console.log(duplicationArray, "duplicationArray")
+    //     if (ind !== -1 && ind !== i) return true;
+    //     else return false;
+    // })
+    // console.log(duplicationArray, "duplicationArray")
 
+
+    const result = total.reduce((arr, now) => {
+        const nowStr = JSON.stringify(now);
+        console.log(nowStr, "nowStr")
+        const idx = arr.indexOf(nowStr);
+        console.log(idx, "idx")
+        idx > -1 ? arr.splice(idx, 1) : arr.push(nowStr);
+        return arr;
+    }, []).map(j => JSON.parse(j));
+
+    console.log(result, "result");
 
     // const result = total.reduce((fanalArray, cur) => {
 

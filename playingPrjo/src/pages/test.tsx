@@ -1,7 +1,8 @@
 import { useEffect } from "react";
+import _ from "lodash";
 
 const TestPage = () => {
-  const WholeData = [
+  const dayone = [
     { name: 1, uid: 1 },
     { name: 2, uid: 2 },
     { name: 3, uid: 3 },
@@ -10,14 +11,33 @@ const TestPage = () => {
     { name: "ppp", uid: 700 },
   ];
 
-  const dayone = [
+  const daytwo = [
     { name: "ball", uid: 100, title: "aaa" },
     { name: "lina", uid: 200, title: "aaa" },
     { name: "ppp", uid: 700 },
     { name: 7, uid: 7 },
   ];
 
-  const total = WholeData.concat(dayone);
+  const total = dayone.concat(daytwo);
+  // concat 썼을때랑, _.union 썼을때랑 모양이 다르다.
+  const newUnion = _.union(dayone, daytwo);
+  console.log(JSON.stringify(newUnion), "newUnion");
+  console.log(total, "totla");
+
+  const unique = total.reduce((acc, item) => {
+    const index = _.findIndex(acc, item.name);
+    console.log(index, "index");
+    console.log(acc, "acc");
+    console.log(item.name, "item.name");
+
+    if (index === -1) {
+      acc.push(item.name);
+    }
+
+    return acc;
+  }, []);
+
+  console.log(unique, "unique");
 
   // let duplicationArray = total.filter((uid, i, arr) => {
   //     let ind = total.lastIndexOf(total.arr);
@@ -28,18 +48,19 @@ const TestPage = () => {
   // })
   // console.log(duplicationArray, "duplicationArray")
 
-  const result = total
-    .reduce((arr, now) => {
-      const nowStr = JSON.stringify(now);
-      console.log(nowStr, "nowStr");
-      const idx = arr.indexOf(nowStr);
-      console.log(idx, "idx");
-      idx > -1 ? arr.splice(idx, 1) : arr.push(nowStr);
-      return arr;
-    }, [])
-    .map((j) => JSON.parse(j));
+  //okky에서 달아준 답변.. 대박
+  //   const result = total
+  //     .reduce((arr, now) => {
+  //       const nowStr = JSON.stringify(now);
+  //       console.log(nowStr, "nowStr");
+  //       const idx = arr.indexOf(nowStr);
+  //       console.log(idx, "idx");
+  //       idx > -1 ? arr.splice(idx, 1) : arr.push(nowStr);
+  //       return arr;
+  //     }, [])
+  //     .map((j) => JSON.parse(j));
 
-  console.log(result, "result");
+  //   console.log(result, "result");
 
   // const result = total.reduce((fanalArray, cur) => {
 
@@ -90,6 +111,7 @@ const TestPage = () => {
 
   //https://okky.kr/articles/1359719
   //https://stackoverflow.com/questions/74556019/react-question-how-to-omit-duplicate-data-in-array
+
   return <div>dddd</div>;
 };
 

@@ -36,7 +36,7 @@
   font-weight: 600;
   color: var(--main-ada1ea);
 }
-.div {
+.div .div8 {
   position: absolute;
   top: 454px;
   right: 245px;
@@ -45,6 +45,15 @@
   display: inline-block;
 }
 .rectangle-div2 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: var(--br-md);
+  background-color: var(--monotone-efefef);
+  width: 450px;
+  height: 52px;
+}
+.rectangle-div6 {
   position: absolute;
   top: 0;
   right: 0;
@@ -123,6 +132,8 @@
   max-width: 100%;
   overflow: hidden;
   max-height: 100%;
+  background-image: url(../assets/logo2.png);
+
 }
 .rectangle-div4 {
   position: absolute;
@@ -191,4 +202,213 @@
   .log-in-button2 {
     width: 200px;
   }
+}
+
+
+.phone-icon {
+  position: absolute;
+  top: 0;
+  right: 264px;
+  width: 54px;
+  height: 54px;
+  background-image: url(../assets/phone.svg);
+}
+.apple-icon,
+.div7,
+.facebook-icon,
+.kakao-icon,
+.naver-icon {
+  position: absolute;
+  top: 0;
+  right: 198px;
+  width: 54px;
+  height: 54px;
+}
+.div7,
+.facebook-icon,
+.kakao-icon,
+.naver-icon {
+  right: 132px;
+}
+.div7,
+.facebook-icon,
+.naver-icon {
+  right: 66px;
+}
+.div7,
+.facebook-icon {
+
+  right: 0;
+}
+.facebook-icon {
+ background-image: url(../assets/facebook.svg);
+}
+.naver-icon {
+  background-image: url(../assets/naver.svg);
+ }
+ .kakao-icon{
+  background-image: url(../assets/kakao.svg);
+ }
+ .apple-icon{
+  background-image: url(../assets/apple.svg);
+ }
+
+.a {
+  text-decoration: none;
+  position: absolute;
+  top: 540px;
+  right: 245px;
+  letter-spacing: -0.1px;
+  text-align: center;
+  display: inline-block;
+  color: inherit;
+}
+
+
+/* makeAccountPopUp */
+
+.rectangle-div1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: var(--br-md);
+  background-color: var(--basic-ffffff);
+  width: 684px;
+  height: 804px;
+}
+.welcome-div {
+  position: absolute;
+  top: 116px;
+  right: 463px;
+  font-size: var(--font-size-base);
+  letter-spacing: -0.2px;
+  line-height: 18px;
+  font-weight: 900;
+  font-family: var(--font-azo-sans);
+  color: var(--main-ada1ea);
+  display: inline-block;
+}
+.logo6-icon {
+  position: absolute;
+  height: 4.48%;
+  width: 23.44%;
+  top: 16.54%;
+  right: 59.45%;
+  bottom: 78.97%;
+  left: 17.11%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.rectangle-div2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: var(--br-sm);
+  background-color: var(--monotone-efefef);
+  width: 450px;
+  height: 52px;
+}
+.div1 {
+  position: absolute;
+  top: calc(50% - 9px);
+  left: 17px;
+  letter-spacing: -0.2px;
+  line-height: 18px;
+  display: inline-block;
+}
+.div,
+.div2,
+.div8 {
+  left: 117px;
+  width: 450px;
+  height: 52px;
+}
+.div {
+  position: absolute;
+  top: 359px;
+}
+.div8 {
+  position: absolute;
+  top: 578px;
+}
+.div2 {
+  top: 297px;
+}
+.div2,
+.div4,
+.div5 {
+  position: absolute;
+}
+.div5 {
+  top: calc(50% - 9px);
+  left: 17.14px;
+  letter-spacing: -0.2px;
+  line-height: 18px;
+  display: inline-block;
+}
+.div4 {
+  top: 235px;
+  left: 117px;
+  width: 450px;
+  height: 52px;
+}
+.span {
+  color: var(--monotone-737373);
+}
+.div6 {
+  position: absolute;
+  top: 421px;
+  left: 162px;
+  font-size: var(--font-size-xs);
+  line-height: 16px;
+  text-align: center;
+  display: inline-block;
+  color: var(--main-ada1ea);
+}
+.rectangle-div5 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: var(--br-sm);
+  background-color: var(--main-ada1ea);
+  width: 450px;
+  height: 55px;
+}
+.sign-up-b {
+  position: absolute;
+  top: calc(50% - 8.5px);
+  left: calc(50% - 76px);
+  font-size: var(--font-size-base);
+  letter-spacing: -0.3px;
+  line-height: 20px;
+  display: inline-block;
+  font-family: var(--font-roboto);
+  color: var(--basic-ffffff);
+  text-align: center;
+  width: 151px;
+}
+.complete-button-off {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  position: absolute;
+  top: 471px;
+  left: 117px;
+  width: 450px;
+  height: 55px;
+  overflow: hidden;
+}
+.sign-up-pop-up {
+  position: relative;
+  width: 684px;
+  height: 804px;
+  max-width: 90%;
+  max-height: 90%;
+  overflow: auto;
+  text-align: left;
+  font-size: var(--font-size-sm);
+  color: var(--monotone-737373);
+  font-family: var(--font-roboto);
 }

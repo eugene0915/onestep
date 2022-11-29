@@ -1,43 +1,60 @@
-import { useEffect } from "react";
+import { useEffect, useState, useRef } from "react";
 import _ from "lodash";
 
-const TestPage = () => {
-  const dayone = [
-    { name: 1, uid: 1 },
-    { name: 2, uid: 2 },
-    { name: 3, uid: 3 },
-    { name: "ball", uid: 100 },
-    { name: "lina", uid: 200 },
-    { name: "ppp", uid: 700 },
-  ];
-
-  const daytwo = [
-    { name: "ball", uid: 100, title: "aaa" },
-    { name: "lina", uid: 200, title: "aaa" },
-    { name: "ppp", uid: 700 },
-    { name: 7, uid: 7 },
-  ];
-
-  const total = dayone.concat(daytwo);
-  // concat 썼을때랑, _.union 썼을때랑 모양이 다르다.
-  const newUnion = _.union(dayone, daytwo);
-  console.log(JSON.stringify(newUnion), "newUnion");
-  console.log(total, "totla");
-
-  const unique = total.reduce((acc, item) => {
-    const index = _.findIndex(acc, item.name);
-    console.log(index, "index");
-    console.log(acc, "acc");
-    console.log(item.name, "item.name");
-
-    if (index === -1) {
-      acc.push(item.name);
+const useClick = (onClick) => {
+  const element = useRef();
+  useEffect(() => {
+    console.log(element.current);
+    if (element.current) {
+      element.current.addEventListener("click", onClick);
     }
 
-    return acc;
+    return () => {
+      if (element.current) {
+        element.current.removeEventLister("click", onClick);
+      }
+    };
   }, []);
 
-  console.log(unique, "unique");
+  return element;
+};
+
+const TestPage = () => {
+  // const dayone = [
+  //   { name: 1, uid: 1 },
+  //   { name: 2, uid: 2 },
+  //   { name: 3, uid: 3 },
+  //   { name: "ball", uid: 100 },
+  //   { name: "lina", uid: 200 },
+  //   { name: "ppp", uid: 700 },
+  // ];
+
+  // const daytwo = [
+  //   { name: "ball", uid: 100, title: "aaa" },
+  //   { name: "lina", uid: 200, title: "aaa" },
+  //   { name: "ppp", uid: 700 },
+  //   { name: 7, uid: 7 },
+  // ];
+
+  // const total = dayone.concat(daytwo);
+  // // concat 썼을때랑, _.union 썼을때랑 모양이 다르다.
+  // const newUnion = _.union(dayone, daytwo);
+  // console.log(JSON.stringify(newUnion), "newUnion");
+  // console.log(total, "totla");
+
+  // const unique = total.reduce((acc, item) => {
+  //   const index = _.findIndex(acc, item.name);
+  //   console.log(index, "index");
+  //   console.log(acc, "acc");
+  //   console.log(item.name, "item.name");
+
+  //   if (index === -1) {
+  //     acc.push(item.name);
+  //   }
+  //   return acc;
+  // }, []);
+
+  // console.log(unique, "unique");
 
   // let duplicationArray = total.filter((uid, i, arr) => {
   //     let ind = total.lastIndexOf(total.arr);
@@ -111,8 +128,10 @@ const TestPage = () => {
 
   //https://okky.kr/articles/1359719
   //https://stackoverflow.com/questions/74556019/react-question-how-to-omit-duplicate-data-in-array
+  const sayHello = () => console.log("hello");
+  const title = useClick(sayHello);
 
-  return <div>dddd</div>;
+  return <h1 ref={title}>dddd</h1>;
 };
 
 export default TestPage;

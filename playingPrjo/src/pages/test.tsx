@@ -1,137 +1,200 @@
 import { useEffect, useState, useRef } from "react";
 import _ from "lodash";
 
+
 const useClick = (onClick) => {
-  const element = useRef();
-  useEffect(() => {
-    console.log(element.current);
-    if (element.current) {
-      element.current.addEventListener("click", onClick);
-    }
+    const element = useRef();
+    useEffect(() => {
+        console.log(element.current);
+        if (element.current) {
+            element.current.addEventListener("click", onClick);
+        }
 
-    return () => {
-      if (element.current) {
-        element.current.removeEventLister("click", onClick);
-      }
-    };
-  }, []);
+        return () => {
+            if (element.current) {
+                element.current.removeEventLister("click", onClick);
+            }
+        };
+    }, []);
 
-  return element;
+    return element;
 };
 
 const TestPage = () => {
-  // const dayone = [
-  //   { name: 1, uid: 1 },
-  //   { name: 2, uid: 2 },
-  //   { name: 3, uid: 3 },
-  //   { name: "ball", uid: 100 },
-  //   { name: "lina", uid: 200 },
-  //   { name: "ppp", uid: 700 },
-  // ];
 
-  // const daytwo = [
-  //   { name: "ball", uid: 100, title: "aaa" },
-  //   { name: "lina", uid: 200, title: "aaa" },
-  //   { name: "ppp", uid: 700 },
-  //   { name: 7, uid: 7 },
-  // ];
 
-  // const total = dayone.concat(daytwo);
-  // // concat 썼을때랑, _.union 썼을때랑 모양이 다르다.
-  // const newUnion = _.union(dayone, daytwo);
-  // console.log(JSON.stringify(newUnion), "newUnion");
-  // console.log(total, "totla");
+    const dayone = [
+        { name: 1, uid: 1 },
+        { name: 2, uid: 2 },
+        { name: 3, uid: 3 },
+        { name: "ball", uid: 100 },
+        { name: "lina", uid: 200 },
+        { name: "ppp", uid: 700 },
+    ];
 
-  // const unique = total.reduce((acc, item) => {
-  //   const index = _.findIndex(acc, item.name);
-  //   console.log(index, "index");
-  //   console.log(acc, "acc");
-  //   console.log(item.name, "item.name");
+    const daytwo = [
+        { name: "ball", uid: 100, title: "aaa" },
+        { name: "lina", uid: 200, title: "aaa" },
+        { name: "ppp", uid: 700 },
+        { name: 7, uid: 7 },
+    ];
 
-  //   if (index === -1) {
-  //     acc.push(item.name);
-  //   }
-  //   return acc;
-  // }, []);
+    const total = dayone.concat(daytwo);
 
-  // console.log(unique, "unique");
+    // const newUnion = _.union(dayone, daytwo);
+    // console.log(JSON.stringify(newUnion), "newUnion Json");
+    // console.log(newUnion, "newUnion");
+    // console.log(total, "total");
 
-  // let duplicationArray = total.filter((uid, i, arr) => {
-  //     let ind = total.lastIndexOf(total.arr);
-  //     console.log(ind, "ind")
+    // const groupbylODASH = _.groupBy(total, "uid")
 
-  //     if (ind !== -1 && ind !== i) return true;
-  //     else return false;
-  // })
-  // console.log(duplicationArray, "duplicationArray")
+    // //uid로 묶어서, 공통인거 뺐고 --> 이제 바구니에 2개 이상 든 애들을 골라서 --> 삭제만 하면 된다.
+    // // const filerGroup = _.countBy(groupbylODASH, 'length')
 
-  //okky에서 달아준 답변.. 대박
-  //   const result = total
-  //     .reduce((arr, now) => {
-  //       const nowStr = JSON.stringify(now);
-  //       console.log(nowStr, "nowStr");
-  //       const idx = arr.indexOf(nowStr);
-  //       console.log(idx, "idx");
-  //       idx > -1 ? arr.splice(idx, 1) : arr.push(nowStr);
-  //       return arr;
-  //     }, [])
-  //     .map((j) => JSON.parse(j));
+    // // console.log(filerGroup, "filterGroup")
 
-  //   console.log(result, "result");
+    // Object.keys(groupbylODASH).forEach(key => {
+    //     if (groupbylODASH[key].length < 2) {
+    //         delete groupbylODASH[key];
+    //     }
+    // });
 
-  // const result = total.reduce((fanalArray, cur) => {
+    // console.log(groupbylODASH, "groupbylODASH")
 
-  //     const obj = fanalArray.find((item) => item.uid === cur.uid)
-  //     console.log(obj, "obj")
+    let uniqueList = [];
+    let dupList = [];
 
-  //     if (obj == undefined) {
-  //         return
-  //     }
-  //     return fanalArray
+    Array.prototype.contains = function (item) {
+        let filtered_item = this.filter((i) => {
+            return i.uid === item.uid
+        });
+        return !!filtered_item.length;
+    }
 
-  // }, [])
+    function contains(list, item) {
+        let filtered_item = list.filter((i) => {
+            return i.uid === item.uid
+        });
+        return !!filtered_item.length;
+    }
 
-  // console.log(result, "result")
+    function pushToUniqueList(item) {
+        if (!uniqueList.contains(item)) uniqueList.push(item);
+    }
 
-  // let duplicationArray = total.filter((e, i, arr) => {
-  //     const lastIndex = arr.lastIndexOf(e);
+    function pushToDuplicateList(item) {
+        if (!dupList.contains(item)) dupList.push(item);
+    }
 
-  //     console.log(lastIndex, "lastindex")
-  //     if (lastIndex !== -1 && lastIndex !== i) return true;
-  //     else return false;
-  // })
-  // duplicationArray = [...new Set(duplicationArray)]
-  // const newArray = total.filter((e) => {
-  //     if (duplicationArray.indexOf(e) === -1) return true;
-  //     else return false;
-  // });
+    for (let i = 0; i < total.length; i++) {
+        if (uniqueList.contains(total[i])) {
+            pushToDuplicateList(total[i]);
+        } else {
+            pushToUniqueList(total[i]);
+        }
+    }
 
-  // console.log(duplicationArray, "duplicationArray"); // [100, 80]
-  // console.log(newArray, "newArray");     // [70, 90, 71]
+    console.log('Duplicate list is ', dupList);
+    console.log('Unique list is ', uniqueList);
 
-  // const unique = [
-  //     ...new Map(total.map((item) => [item["uid"], item])).values(),
-  // ];
-  // console.log("original items", total.length, total)
-  // console.log("unique items", unique.length, unique)
 
-  // const result = total.filter((item, idx) => total.indexOf(item) !== idx)
-  //     .reduce((prev, curr) => prev.filter(item => item !== curr), total)
+    function isCherries(fruit) {
+        return fruit.uid !== dupList.uid;
+    }
 
-  // console.log(result, "result")
+    console.log(dayone.filter(isCherries), "test!!!");
+    // { name: 'cherries', quantity: 5 }
 
-  // const depArray = [100, 100, 80, 80, 70, 90, 71];
-  // const resultNumber = depArray.filter((item, idx) => depArray.indexOf(item) !== idx)
-  //     .reduce((prev, curr) => prev.filter(item => item !== curr), depArray)
+    // const unique = total.reduce((acc, item) => {
+    //   const index = _.findIndex(acc, item.name);
+    //   console.log(index, "index");
+    //   console.log(acc, "acc");
+    //   console.log(item.name, "item.name");
 
-  // console.log(resultNumber, "resultNumber")
+    //   if (index === -1) {
+    //     acc.push(item.name);
+    //   }
+    //   return acc;
+    // }, []);
 
-  //https://okky.kr/articles/1359719
-  //https://stackoverflow.com/questions/74556019/react-question-how-to-omit-duplicate-data-in-array
-  const sayHello = () => console.log("hello");
-  const title = useClick(sayHello);
+    // console.log(unique, "unique");
 
-  return <h1 ref={title}>dddd</h1>;
+    // let duplicationArray = total.filter((uid, i, arr) => {
+    //     let ind = total.lastIndexOf(total.arr);
+    //     console.log(ind, "ind")
+
+    //     if (ind !== -1 && ind !== i) return true;
+    //     else return false;
+    // })
+    // console.log(duplicationArray, "duplicationArray")
+
+    //okky에서 달아준 답변.. 대박
+    //   const result = total
+    //     .reduce((arr, now) => {
+    //       const nowStr = JSON.stringify(now);
+    //       console.log(nowStr, "nowStr");
+    //       const idx = arr.indexOf(nowStr);
+    //       console.log(idx, "idx");
+    //       idx > -1 ? arr.splice(idx, 1) : arr.push(nowStr);
+    //       return arr;
+    //     }, [])
+    //     .map((j) => JSON.parse(j));
+
+    //   console.log(result, "result");
+
+    // const result = total.reduce((fanalArray, cur) => {
+
+    //     const obj = fanalArray.find((item) => item.uid === cur.uid)
+    //     console.log(obj, "obj")
+
+    //     if (obj == undefined) {
+    //         return
+    //     }
+    //     return fanalArray
+
+    // }, [])
+
+    // console.log(result, "result")
+
+    // let duplicationArray = total.filter((e, i, arr) => {
+    //     const lastIndex = arr.lastIndexOf(e);
+
+    //     console.log(lastIndex, "lastindex")
+    //     if (lastIndex !== -1 && lastIndex !== i) return true;
+    //     else return false;
+    // })
+    // duplicationArray = [...new Set(duplicationArray)]
+    // const newArray = total.filter((e) => {
+    //     if (duplicationArray.indexOf(e) === -1) return true;
+    //     else return false;
+    // });
+
+    // console.log(duplicationArray, "duplicationArray"); // [100, 80]
+    // console.log(newArray, "newArray");     // [70, 90, 71]
+
+    // const unique = [
+    //     ...new Map(total.map((item) => [item["uid"], item])).values(),
+    // ];
+    // console.log("original items", total.length, total)
+    // console.log("unique items", unique.length, unique)
+
+    // const result = total.filter((item, idx) => total.indexOf(item) !== idx)
+    //     .reduce((prev, curr) => prev.filter(item => item !== curr), total)
+
+    // console.log(result, "result")
+
+    // const depArray = [100, 100, 80, 80, 70, 90, 71];
+    // const resultNumber = depArray.filter((item, idx) => depArray.indexOf(item) !== idx)
+    //     .reduce((prev, curr) => prev.filter(item => item !== curr), depArray)
+
+    // console.log(resultNumber, "resultNumber")
+
+    //https://okky.kr/articles/1359719
+    //https://stackoverflow.com/questions/74556019/react-question-how-to-omit-duplicate-data-in-array
+    const sayHello = () => console.log("hello");
+    const title = useClick(sayHello);
+
+    return <h1 ref={title}>dddd</h1>;
 };
 
 export default TestPage;

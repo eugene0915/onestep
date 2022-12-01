@@ -11,6 +11,7 @@ import TestPage from "./pages/test";
 import DadJokes from "./pages/dadJokes";
 import TestFigma from "./pages/testfigma";
 import TestFigmaTwo from "./pages/testfigma2";
+import UseClick from "./pages/useclick";
 
 function App() {
   // this is for checking if google firestore data was connected
@@ -31,6 +32,7 @@ function App() {
       <Route path="/jokes" element={<DadJokes />} />
       <Route path="/testfigma" element={<TestFigma />} />
       <Route path="/testfigma2" element={<TestFigmaTwo />} />
+      <Route path="/useclick" element={<UseClick />} />
     </Routes>
   );
 }

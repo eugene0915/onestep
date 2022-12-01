@@ -131,6 +131,9 @@ const TestPage = () => {
   const sayHello = () => console.log("hello");
   const title = useClick(sayHello);
 
+  setTimeout(() => {
+    console.log("hi");
+  }, 5000);
   return <h1 ref={title}>dddd</h1>;
 };
 
